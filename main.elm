@@ -51,6 +51,7 @@ type Msg
     | UpdateLinkToDownload String
     | DownloadLink
     | DownloadLaunched (Result Http.Error String)
+    | DownloadFinished (Result Http.Error String)
 
 
 
@@ -72,6 +73,9 @@ update msg model =
 
         DownloadLink ->
             ( model, downloadYoutubeLink model.linkToDownload )
+
+        _ ->
+            ( model, Cmd.none )
 
 
 
